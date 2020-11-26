@@ -1,7 +1,7 @@
 ﻿
 namespace Calculator
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Calculator
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.resultBox = new System.Windows.Forms.TextBox();
             this.buttonNumber1 = new System.Windows.Forms.Button();
             this.buttonNumber2 = new System.Windows.Forms.Button();
             this.buttonNumber3 = new System.Windows.Forms.Button();
@@ -47,22 +47,21 @@ namespace Calculator
             this.buttonNumber0 = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.title = new System.Windows.Forms.Label();
             this.delete = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // resultBox
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Azure;
-            this.textBox1.Font = new System.Drawing.Font("MV Boli", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(294, 67);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.resultBox.BackColor = System.Drawing.Color.Azure;
+            this.resultBox.Font = new System.Drawing.Font("MV Boli", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultBox.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.resultBox.Location = new System.Drawing.Point(12, 12);
+            this.resultBox.Name = "resultBox";
+            this.resultBox.Size = new System.Drawing.Size(294, 67);
+            this.resultBox.TabIndex = 0;
+            this.resultBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // buttonNumber1
             // 
@@ -79,7 +78,7 @@ namespace Calculator
             this.buttonNumber1.TabIndex = 1;
             this.buttonNumber1.Text = "1";
             this.buttonNumber1.UseVisualStyleBackColor = false;
-            this.buttonNumber1.Click += new System.EventHandler(this.buttonNumber_Click);
+            this.buttonNumber1.Click += new System.EventHandler(this.OnButtonNumberClick);
             // 
             // buttonNumber2
             // 
@@ -96,7 +95,7 @@ namespace Calculator
             this.buttonNumber2.TabIndex = 16;
             this.buttonNumber2.Text = "2";
             this.buttonNumber2.UseVisualStyleBackColor = false;
-            this.buttonNumber2.Click += new System.EventHandler(this.buttonNumber_Click);
+            this.buttonNumber2.Click += new System.EventHandler(this.OnButtonNumberClick);
             // 
             // buttonNumber3
             // 
@@ -113,7 +112,7 @@ namespace Calculator
             this.buttonNumber3.TabIndex = 17;
             this.buttonNumber3.Text = "3";
             this.buttonNumber3.UseVisualStyleBackColor = false;
-            this.buttonNumber3.Click += new System.EventHandler(this.buttonNumber_Click);
+            this.buttonNumber3.Click += new System.EventHandler(this.OnButtonNumberClick);
             // 
             // buttonNumber4
             // 
@@ -130,7 +129,7 @@ namespace Calculator
             this.buttonNumber4.TabIndex = 18;
             this.buttonNumber4.Text = "4";
             this.buttonNumber4.UseVisualStyleBackColor = false;
-            this.buttonNumber4.Click += new System.EventHandler(this.buttonNumber_Click);
+            this.buttonNumber4.Click += new System.EventHandler(this.OnButtonNumberClick);
             // 
             // buttonNumber5
             // 
@@ -147,7 +146,7 @@ namespace Calculator
             this.buttonNumber5.TabIndex = 19;
             this.buttonNumber5.Text = "5";
             this.buttonNumber5.UseVisualStyleBackColor = false;
-            this.buttonNumber5.Click += new System.EventHandler(this.buttonNumber_Click);
+            this.buttonNumber5.Click += new System.EventHandler(this.OnButtonNumberClick);
             // 
             // buttonNumber6
             // 
@@ -164,7 +163,7 @@ namespace Calculator
             this.buttonNumber6.TabIndex = 20;
             this.buttonNumber6.Text = "6";
             this.buttonNumber6.UseVisualStyleBackColor = false;
-            this.buttonNumber6.Click += new System.EventHandler(this.buttonNumber_Click);
+            this.buttonNumber6.Click += new System.EventHandler(this.OnButtonNumberClick);
             // 
             // buttonNumber7
             // 
@@ -181,7 +180,7 @@ namespace Calculator
             this.buttonNumber7.TabIndex = 21;
             this.buttonNumber7.Text = "7";
             this.buttonNumber7.UseVisualStyleBackColor = false;
-            this.buttonNumber7.Click += new System.EventHandler(this.buttonNumber_Click);
+            this.buttonNumber7.Click += new System.EventHandler(this.OnButtonNumberClick);
             // 
             // buttonNumber8
             // 
@@ -198,7 +197,7 @@ namespace Calculator
             this.buttonNumber8.TabIndex = 22;
             this.buttonNumber8.Text = "8";
             this.buttonNumber8.UseVisualStyleBackColor = false;
-            this.buttonNumber8.Click += new System.EventHandler(this.buttonNumber_Click);
+            this.buttonNumber8.Click += new System.EventHandler(this.OnButtonNumberClick);
             // 
             // buttonNumber9
             // 
@@ -215,7 +214,7 @@ namespace Calculator
             this.buttonNumber9.TabIndex = 23;
             this.buttonNumber9.Text = "9";
             this.buttonNumber9.UseVisualStyleBackColor = false;
-            this.buttonNumber9.Click += new System.EventHandler(this.buttonNumber_Click);
+            this.buttonNumber9.Click += new System.EventHandler(this.OnButtonNumberClick);
             // 
             // substractionButton
             // 
@@ -232,7 +231,7 @@ namespace Calculator
             this.substractionButton.TabIndex = 24;
             this.substractionButton.Text = "-";
             this.substractionButton.UseVisualStyleBackColor = false;
-            this.substractionButton.Click += new System.EventHandler(this.substractionButton_Click);
+            this.substractionButton.Click += new System.EventHandler(this.OnMathematicalActionButtonClick);
             // 
             // myltipleButton
             // 
@@ -249,7 +248,7 @@ namespace Calculator
             this.myltipleButton.TabIndex = 25;
             this.myltipleButton.Text = "*";
             this.myltipleButton.UseVisualStyleBackColor = false;
-            this.myltipleButton.Click += new System.EventHandler(this.myltipleButton_Click);
+            this.myltipleButton.Click += new System.EventHandler(this.OnMathematicalActionButtonClick);
             // 
             // deviderButton
             // 
@@ -266,7 +265,7 @@ namespace Calculator
             this.deviderButton.TabIndex = 26;
             this.deviderButton.Text = "/";
             this.deviderButton.UseVisualStyleBackColor = false;
-            this.deviderButton.Click += new System.EventHandler(this.deviderButton_Click);
+            this.deviderButton.Click += new System.EventHandler(this.OnMathematicalActionButtonClick);
             // 
             // resultButton
             // 
@@ -283,7 +282,7 @@ namespace Calculator
             this.resultButton.TabIndex = 27;
             this.resultButton.Text = "=";
             this.resultButton.UseVisualStyleBackColor = false;
-            this.resultButton.Click += new System.EventHandler(this.resultButton_Click);
+            this.resultButton.Click += new System.EventHandler(this.OnResultButtonClick);
             // 
             // doteButton
             // 
@@ -300,7 +299,7 @@ namespace Calculator
             this.doteButton.TabIndex = 28;
             this.doteButton.Text = ",";
             this.doteButton.UseVisualStyleBackColor = false;
-            this.doteButton.Click += new System.EventHandler(this.doteButton_Click);
+            this.doteButton.Click += new System.EventHandler(this.OnDoteButtonClick);
             // 
             // buttonNumber0
             // 
@@ -317,7 +316,7 @@ namespace Calculator
             this.buttonNumber0.TabIndex = 29;
             this.buttonNumber0.Text = "0";
             this.buttonNumber0.UseVisualStyleBackColor = false;
-            this.buttonNumber0.Click += new System.EventHandler(this.buttonNumber_Click);
+            this.buttonNumber0.Click += new System.EventHandler(this.OnButtonNumberClick);
             // 
             // addButton
             // 
@@ -334,7 +333,7 @@ namespace Calculator
             this.addButton.TabIndex = 30;
             this.addButton.Text = "+";
             this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addButton.Click += new System.EventHandler(this.OnMathematicalActionButtonClick);
             // 
             // clearButton
             // 
@@ -351,18 +350,18 @@ namespace Calculator
             this.clearButton.TabIndex = 31;
             this.clearButton.Text = "C";
             this.clearButton.UseVisualStyleBackColor = false;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearButton.Click += new System.EventHandler(this.OnClearButtonClick);
             // 
-            // label1
+            // title
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("MV Boli", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(84, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 34);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Calculator";
+            this.title.AutoSize = true;
+            this.title.BackColor = System.Drawing.Color.Transparent;
+            this.title.Font = new System.Drawing.Font("MV Boli", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.Location = new System.Drawing.Point(84, 82);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(147, 34);
+            this.title.TabIndex = 32;
+            this.title.Text = "Calculator";
             // 
             // delete
             // 
@@ -371,7 +370,7 @@ namespace Calculator
             this.delete.FlatAppearance.BorderSize = 2;
             this.delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.delete.Font = new System.Drawing.Font("Adobe Devanagari", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.delete.Location = new System.Drawing.Point(87, 115);
             this.delete.Name = "delete";
@@ -379,7 +378,7 @@ namespace Calculator
             this.delete.TabIndex = 33;
             this.delete.Text = "<-";
             this.delete.UseVisualStyleBackColor = false;
-            this.delete.Click += new System.EventHandler(this.backspaceButton);
+            this.delete.Click += new System.EventHandler(this.OnBackSpaceButtonClick);
             // 
             // button3
             // 
@@ -388,7 +387,7 @@ namespace Calculator
             this.button3.FlatAppearance.BorderSize = 2;
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Adobe Devanagari", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.button3.Location = new System.Drawing.Point(162, 115);
             this.button3.Name = "button3";
@@ -396,9 +395,9 @@ namespace Calculator
             this.button3.TabIndex = 34;
             this.button3.Text = "+/-";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.plusMinus);
+            this.button3.Click += new System.EventHandler(this.OnPlusMinusButtonClick);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -407,7 +406,7 @@ namespace Calculator
             this.ClientSize = new System.Drawing.Size(318, 495);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.delete);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.title);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.buttonNumber0);
@@ -425,11 +424,10 @@ namespace Calculator
             this.Controls.Add(this.buttonNumber3);
             this.Controls.Add(this.buttonNumber2);
             this.Controls.Add(this.buttonNumber1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.resultBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "MainForm";
+            this.Text = "Calc";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,7 +435,7 @@ namespace Calculator
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox resultBox;
         private System.Windows.Forms.Button buttonNumber1;
         private System.Windows.Forms.Button buttonNumber2;
         private System.Windows.Forms.Button buttonNumber3;
@@ -455,7 +453,7 @@ namespace Calculator
         private System.Windows.Forms.Button buttonNumber0;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label title;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button button3;
     }

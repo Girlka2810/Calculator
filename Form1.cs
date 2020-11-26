@@ -1,141 +1,132 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calculator
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        double tmp;
-        string action = "";
-        int count = 0;
-        public Form1()
+        double _tmp;
+        string _action = "";
+        int _countDotsInExpression = 0;
+
+
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void buttonNumber_Click(object sender, EventArgs e)
+        private void OnButtonNumberClick(object sender, EventArgs e)
         {
-            textBox1.Text += ((Button)sender).Text;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            tmp = Convert.ToDouble(textBox1.Text);
-            textBox1.Text = "";
-            action = "+";
-        }
-
-        private void resultButton_Click(object sender, EventArgs e)
-        {
-            if (action == "+")
+            if (resultBox.Text == "0")
             {
-                textBox1.Text = tmp + Convert.ToDouble(textBox1.Text) + "";
-
+                resultBox.Text = "";
             }
-            if (action == "-")
+            resultBox.Text += ((Button)sender).Text;
+        }
+
+        private void OnMathematicalActionButtonClick(object sender, EventArgs e)
+        {
+            if (resultBox.Text.Length != 0)
             {
-                textBox1.Text = tmp - Convert.ToDouble(textBox1.Text) + "";
+                _tmp = Convert.ToDouble(resultBox.Text);
+                _countDotsInExpression = 0;
+                resultBox.Text = "";
+                _action = ((Button)sender).Text;
             }
-            if (action == "*")
+        }
+
+        private void OnResultButtonClick(object sender, EventArgs e)
+        {
+            if(resultBox.Text.Length==0)
             {
-                textBox1.Text = tmp * Convert.ToDouble(textBox1.Text) + "";
+                return;
             }
-            if (action == "/")
+            switch(_action)
             {
-                if (Convert.ToInt32(textBox1.Text) != 0)
+                case "+":
+                    resultBox.Text = _tmp + Convert.ToDouble(resultBox.Text) + "";
+                    break;
+                case "-":
+                    resultBox.Text = _tmp - Convert.ToDouble(resultBox.Text) + "";
+                    break;
+                case "*":
+                    resultBox.Text = _tmp * Convert.ToDouble(resultBox.Text) + "";
+                    break;
+                case "/":
+                    if (Convert.ToInt32(resultBox.Text) != 0)
+                    {
+                        resultBox.Text = _tmp / Convert.ToDouble(resultBox.Text) + "";
+                    }
+                    else
+                    {
+                        ResetVariebles();
+                        resultBox.Text = "";
+                    }
+                    break;
+            }
+            ResetVariebles();
+
+
+        }
+
+
+
+        private void OnPlusMinusButtonClick(object sender, EventArgs e)
+        {
+            if (resultBox.Text.Length != 0)
+            {
+                if (resultBox.Text.Contains("-"))
                 {
-                    textBox1.Text = tmp / Convert.ToDouble(textBox1.Text) + "";
+                    resultBox.Text = resultBox.Text.Substring(1);
+                }
+                else
+                {
+                    resultBox.Text = "-" + resultBox.Text;
                 }
             }
-
         }
 
-        private void substractionButton_Click(object sender, EventArgs e)
-        {
-            tmp = Convert.ToDouble(textBox1.Text);
-            textBox1.Text = "";
-            action = "-";
-        }
 
-        private void myltipleButton_Click(object sender, EventArgs e)
+        private void OnDoteButtonClick (object sender, EventArgs e)
         {
-            tmp = Convert.ToDouble(textBox1.Text);
-            textBox1.Text = "";
-            action = "*";
-        }
-
-        private void deviderButton_Click(object sender, EventArgs e)
-        {
-            tmp = Convert.ToDouble(textBox1.Text);
-            textBox1.Text = "";
-            action = "/";
-        }
-
-        private void buttonNumber0_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += ((Button)sender).Text;
-
-            
-        }
-
-        private void doteButton_Click(object sender, EventArgs e)
-        {
-            if (count < 1)
+            if (_countDotsInExpression == 0)
             {
-                //if ( )
-                //{
-                //    textBox1.Text += "0,";
-                //}
-                //else
-                { 
-                textBox1.Text += ((Button)sender).Text;
+                if (resultBox.Text.Length == 0)
+                {
+                    resultBox.Text += "0,";
                 }
-                count = 1;
+                else
+                {
+                    resultBox.Text += ((Button)sender).Text;
+                }
+                _countDotsInExpression = 1;
             }
         }
 
-        private void plusMinus(object sender, EventArgs e)
+
+
+        private void OnClearButtonClick(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            ResetVariebles();
+            resultBox.Text = "";
+        }
+
+
+        private void OnBackSpaceButtonClick(object sender, EventArgs e)
+        {
+            if (resultBox.Text.Length != 0)
             {
-                double tmp = Convert.ToDouble(textBox1.Text);
-                textBox1.Text = tmp * (-1) + "";
+                resultBox.Text = resultBox.Text.Substring(0, resultBox.Text.Length - 1);
             }
         }
 
-        private void clearButton_Click(object sender, EventArgs e)
+        private void ResetVariebles()
         {
-            tmp = 0;
-            action = "";
-            count = 0;
-            textBox1.Text = "";
-        }
-
-        private void backspaceButton(object sender, EventArgs e)
-        {
-            int lenght = textBox1.Text.Length - 1;
-            string text = textBox1.Text;
-            textBox1.Clear();
-            for (int i = 0; i < lenght; i++)
-            {
-                textBox1.Text = textBox1.Text + text[i];
-            }
+            _tmp = 0;
+            _action = "";
+            _countDotsInExpression = 0;
         }
     }
 }
